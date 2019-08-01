@@ -1,0 +1,52 @@
+
+<div id="main-container" style="text-align:center;">
+
+    <div class="container">
+      <h2>Hello {{userName}}!</h2>
+        <div>
+          <mat-form-field [floatLabel]="options.value.floatLabel">
+            <mat-label for="userName">USERNAME</mat-label>
+            <input matInput type="text" id="userName" name="userName" [(ngModel)]="userName" required>
+          </mat-form-field>
+        </div>
+    </div>
+  
+    <br>
+
+    <div class="chat" #scrollMe [scrollTop]="scrollMe.scrollHeight" *ngIf="messages.length > 0">
+      <li  *ngFor="let message of messages">
+        <div class="msg">
+          
+          <p> {{message}} </p>
+        </div>
+      </li>
+    </div> 
+
+    <br>
+
+    <form (ngSubmit)="sendMessage()" #chatForm="ngForm">
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>text here</mat-label>
+            <input autocomplete="off" matInput  type="text" id="message"  name="message" [(ngModel)]="message" >
+          </mat-form-field>
+      </div>
+  </form>
+
+    <div class="example-button-row">
+        <button (click)="sendMessage()" mat-raised-button color="primary" type="submit" class="btn btn-primary" id="sendmessage" [disabled]="!chatForm.valid">
+          Send
+        </button>
+    </div>
+
+    <br>
+
+    <div>
+      <button mat-raised-button color="warn" (click)="leftTheRoom()" [routerLink]="['/chat-lobby']" type="button" class="btn btn-primary" id="leavetheroom">
+        Leave Room
+      </button>
+    </div>
+
+</div>
+<router-outlet></router-outlet>
+  
