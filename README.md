@@ -3,8 +3,8 @@
 # Real-Time Chat Project
 # Chat with each other on dynamically created chat rooms.
 
-Server side created with .Net Core
-Client side managed by Angular
+Server side created with .Net Core <br>
+Client side managed by Angular <br>
 Used SignalR for real-time managing.
 
 # BUILD AND RUN
